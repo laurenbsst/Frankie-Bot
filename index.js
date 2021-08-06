@@ -7,7 +7,8 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_
 // when the client is ready, run this code
 // this event will only trigger one time after logging in
 client.once('ready', () => {
-	console.log('Frankie is online!');
+    console.log('Frankie is online!');
+    client.user.setActivity('The Bachelor', { type: 'WATCHING' });
 });
 
 // login to Discord with your app's token
