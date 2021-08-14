@@ -34,8 +34,11 @@ client.on('messageCreate', async (message) => {
         const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
         // Fetches all entries in the DB
         const quote = await Quotes.find();
-        // Posts a quote to database using randomly generated index
-        message.channel.send(quote[random(0, 2)].quote);
+        setTimeout(function () {
+            // Posts a quote to database using randomly generated index
+            message.channel.send(quote[random(0, 71)].quote);
+        }, 500);
+
     }
 });
 // login to Discord with your app's token
