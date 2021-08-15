@@ -20,10 +20,16 @@ mongoose.connect(process.env.MONGODB_SRV, {
 });
 
 // When the client is ready, run this code
-// This event will only trigger one time after logging in
-client.once('ready', () => {
+client.on('ready', () => {
     console.log('Frankie is online!');
     client.user.setActivity('The Bachelor', { type: 'WATCHING' });
+
+    // Schedules messages so test message is sent every 5 seconds
+    setInterval(() => {
+        var testChannel = client.channels.cache.get(process.env.CHANNEL);
+        testChannel.send("Hello! This message was sent in an interval.");
+    }, '5000');
+
 });
 
 // Message event
@@ -34,9 +40,9 @@ client.on('messageCreate', async (message) => {
         const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
         // Fetches all entries in the DB
         const quote = await Quotes.find();
-        setTimeout(function () {
+        setTimeout(() => {
             // Posts a quote to database using randomly generated index
-            message.channel.send(quote[random(0, 71)].quote);
+            message.channel.send(quote[random(0, 133)].quote);
         }, 500);
 
     }
