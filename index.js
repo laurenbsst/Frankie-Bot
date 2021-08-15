@@ -1,8 +1,16 @@
-// Require the needed discord.js classes
+/**
+ * index.js - created 06/08/2021
+ * @description Main bot logic that sends random quotes to a Discord channel, and schedules a daily quote
+ * to be posted in a specified channel.
+ * @author Lauren Bassett <laurenb252@outlook.com>
+ **/
+
+// Require the necessary discord.js classes
 const { Client, Intents, Collection } = require('discord.js');
 require('dotenv').config();
 const mongoose = require('mongoose');
 const Quotes = require('./schemas/quote-schema');
+const cron = require('node-cron');
 
 // Create a new Discord client
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
@@ -24,12 +32,23 @@ client.on('ready', () => {
     console.log('Frankie is online!');
     client.user.setActivity('The Bachelor', { type: 'WATCHING' });
 
-    // Schedules messages so test message is sent every 5 seconds
-    setInterval(() => {
+    // Schedules messages so test message is sent at 9:30AM every day
+    cron.schedule('0 30 9 * * *', async () => {
         var testChannel = client.channels.cache.get(process.env.CHANNEL);
-        testChannel.send("Hello! This message was sent in an interval.");
-    }, '5000');
 
+        const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+        // Fetches all entries in the DB
+        const quote = await Quotes.find();
+        const index = random(0, 133);
+
+        setTimeout(() => {
+            // Posts a quote to database using randomly generated index
+            testChannel.send(quote[index].quote);
+        }, 500)
+    }, {
+        scheduled: true,
+        timezone: 'Europe/Dublin'
+    });
 });
 
 // Message event
@@ -40,11 +59,12 @@ client.on('messageCreate', async (message) => {
         const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
         // Fetches all entries in the DB
         const quote = await Quotes.find();
+        const index = random(0, 133);
+
         setTimeout(() => {
             // Posts a quote to database using randomly generated index
-            message.channel.send(quote[random(0, 133)].quote);
+            message.channel.send(quote[index].quote);
         }, 500);
-
     }
 });
 // login to Discord with your app's token
