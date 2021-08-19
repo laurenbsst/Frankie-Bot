@@ -45,8 +45,8 @@ client.on('ready', () => {
     // Presence shown in Discord
     client.user.setActivity('The Bachelor', { type: 'WATCHING' });
 
-    // Schedules messages so one random quote is sent at 9:30AM every day
-    cron.schedule('0 30 9 * * *', async () => {
+    // Schedules messages so one random quote is sent at 6:00 PM every day
+    cron.schedule('0 00 18 * * *', async () => {
         // Holds ID of specified channel for quote to be posted in
         var testChannel = client.channels.cache.get(process.env.CHANNEL);
         // Random quote to be posted
@@ -54,7 +54,7 @@ client.on('ready', () => {
         // Bot waits 0.5 seconds before posting quote
         setTimeout(() => {
             // Posts a quote to database using randomly generated index
-            testChannel.send(finalQuote.quote);
+            testChannel.send("Daily quote: " + finalQuote.quote);
         }, 500)
     }, {
         scheduled: true,
