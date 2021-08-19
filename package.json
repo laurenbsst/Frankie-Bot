@@ -4,9 +4,7 @@
   "description": "A Discord bot that posts quotes from the TV show 'The Middle'",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node .",
-    "dev": "nodemon ."
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
