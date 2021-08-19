@@ -5,7 +5,6 @@
  * @author Lauren Bassett <laurenb252@outlook.com>
  **/
 
-// Require the necessary discord.js classes
 const { Client, Intents, Collection } = require('discord.js');
 require('dotenv').config();
 const mongoose = require('mongoose');
@@ -27,23 +26,35 @@ mongoose.connect(process.env.MONGODB_SRV, {
     console.log(err);
 });
 
+async function getQuote() {
+    // Generates a random number
+    const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+    // Fetches all entries in the DB
+    const quote = await Quotes.find().catch((error) => (console.log("Something went wrong. Could not find quote.", error)));
+    // Holds random number between 0 and 132 (number of DB entries)
+    const index = random(0, 133);
+
+    // Returns quote with assigned random index
+    return quote[index]
+};
+
+
 // When the client is ready, run this code
 client.on('ready', () => {
     console.log('Frankie is online!');
+    // Presence shown in Discord
     client.user.setActivity('The Bachelor', { type: 'WATCHING' });
 
-    // Schedules messages so test message is sent at 9:30AM every day
+    // Schedules messages so one random quote is sent at 9:30AM every day
     cron.schedule('0 30 9 * * *', async () => {
+        // Holds ID of specified channel for quote to be posted in
         var testChannel = client.channels.cache.get(process.env.CHANNEL);
-
-        const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-        // Fetches all entries in the DB
-        const quote = await Quotes.find();
-        const index = random(0, 133);
-
+        // Random quote to be posted
+        const finalQuote = await getQuote().catch((error) => (console.log("Something went wrong. Could find quote for scheduled post.", error)));
+        // Bot waits 0.5 seconds before posting quote
         setTimeout(() => {
             // Posts a quote to database using randomly generated index
-            testChannel.send(quote[index].quote);
+            testChannel.send(finalQuote.quote);
         }, 500)
     }, {
         scheduled: true,
@@ -51,21 +62,16 @@ client.on('ready', () => {
     });
 });
 
-// Message event
+// Executed upon message event
 client.on('messageCreate', async (message) => {
-    // If user types quote command
+    // If user types '!quote' command, post random quote
     if (message.content.toLowerCase() === "!quote") {
-        // Generates a random number
-        const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-        // Fetches all entries in the DB
-        const quote = await Quotes.find();
-        const index = random(0, 133);
-
+        const finalQuote = await getQuote().catch((error) => (console.log("Something went wrong. Could not find quote.", error)));
         setTimeout(() => {
             // Posts a quote to database using randomly generated index
-            message.channel.send(quote[index].quote);
+            message.channel.send(finalQuote.quote);
         }, 500);
     }
 });
-// login to Discord with your app's token
+// Login to Discord with app's token
 client.login(process.env.TOKEN);
