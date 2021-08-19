@@ -2,7 +2,7 @@
 Frankie-Bot is a Discord bot that posts quotes from the TV show 'The Middle'.
 
 # Commands
-Using Frankie-Bot is simple. Just type '!quote' in any text channel and Frankie-Bot will post a random, popular quote from the show just 0.5 seconds later.
+Using Frankie-Bot is simple. Just type '!quote' in any text channel and Frankie-Bot will post a random, popular quote from the show 0.5 seconds later.
 
 ![demo1](https://user-images.githubusercontent.com/58308897/130088489-946273a1-b6b0-4409-b722-e7446104c9f3.jpg)
 
