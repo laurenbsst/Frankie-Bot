@@ -1,6 +1,10 @@
 # Env files
 .env
 
+# Demo pics for README
+demo1.jpg
+demo2.jpg
+
 # Logs
 logs
 *.log
