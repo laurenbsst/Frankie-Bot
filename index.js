@@ -27,15 +27,20 @@ mongoose.connect(process.env.MONGODB_SRV, {
 });
 
 async function getQuote() {
-    // Generates a random number
-    const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-    // Fetches all entries in the DB
-    const quote = await Quotes.find().catch((error) => (console.log("Something went wrong. Could not find quote.", error)));
-    // Holds random number between 0 and 132 (number of DB entries)
-    const index = random(0, 133);
+    try {
+        // Generates a random number
+        const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+        // Fetches all entries in the DB
+        const quote = await Quotes.find();
+        // Holds random number between 0 and 132 (number of DB entries)
+        const index = random(0, 133);
 
-    // Returns quote with assigned random index
-    return quote[index]
+        // Returns quote with assigned random index
+        return quote[index]
+
+    } catch (error) {
+        console.log("Something went wrong. Could not find quote.", error);
+    }
 };
 
 
@@ -45,32 +50,42 @@ client.on('ready', () => {
     // Presence shown in Discord
     client.user.setActivity('The Bachelor', { type: 'WATCHING' });
 
-    // Schedules messages so one random quote is sent at 6:00 PM every day
-    cron.schedule('0 00 18 * * *', async () => {
-        // Holds ID of specified channel for quote to be posted in
-        var testChannel = client.channels.cache.get(process.env.CHANNEL);
-        // Random quote to be posted
-        const finalQuote = await getQuote().catch((error) => (console.log("Something went wrong. Could find quote for scheduled post.", error)));
-        // Bot waits 0.5 seconds before posting quote
-        setTimeout(() => {
-            // Posts a quote to database using randomly generated index
-            testChannel.send("Daily quote: " + finalQuote.quote);
-        }, 500)
-    }, {
-        scheduled: true,
-        timezone: 'Europe/Dublin'
-    });
+    try {
+        // Schedules messages so one random quote is sent at 6:00 PM every day
+        cron.schedule('0 00 18 * * *', async () => {
+            // Holds ID of specified channel for quote to be posted in
+            var testChannel = client.channels.cache.get(process.env.CHANNEL);
+            // Random quote to be posted
+            const finalQuote = await getQuote();
+            // Bot waits 0.5 seconds before posting quote
+            setTimeout(() => {
+                // Posts a quote to database using randomly generated index
+                testChannel.send("Daily quote: " + finalQuote.quote);
+            }, 500)
+        }, {
+            scheduled: true,
+            timezone: 'Europe/Dublin'
+        });
+
+    } catch (error) {
+        console.log("Something went wrong. Could find quote for scheduled post.", error);
+    }
 });
 
 // Executed upon message event
 client.on('messageCreate', async (message) => {
-    // If user types '!quote' command, post random quote
-    if (message.content.toLowerCase() === "!quote") {
-        const finalQuote = await getQuote().catch((error) => (console.log("Something went wrong. Could not find quote.", error)));
-        setTimeout(() => {
-            // Posts a quote to database using randomly generated index
-            message.channel.send(finalQuote.quote);
-        }, 500);
+    try {
+        // If user types '!quote' command, post random quote
+        if (message.content.toLowerCase() === "!quote") {
+            const finalQuote = await getQuote();
+            setTimeout(() => {
+                // Posts a quote to database using randomly generated index
+                message.channel.send(finalQuote.quote);
+            }, 500);
+        }
+
+    } catch (error) {
+        console.log("Something went wrong. Could not find quote.", error);
     }
 });
 // Login to Discord with app's token
