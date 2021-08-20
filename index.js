@@ -32,8 +32,8 @@ async function getQuote() {
         const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
         // Fetches all entries in the DB
         const quote = await Quotes.find();
-        // Holds random number between 0 and 132 (number of DB entries)
-        const index = random(0, 133);
+        // Holds random number between 0 and 140 (number of DB entries)
+        const index = random(0, 140);
 
         // Returns quote with assigned random index
         return quote[index]
