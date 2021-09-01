@@ -51,8 +51,8 @@ client.on('ready', () => {
     client.user.setActivity('The Bachelor', { type: 'WATCHING' });
 
     try {
-        // Schedules messages so one random quote is sent at 6:00 PM every day
-        cron.schedule('0 00 18 * * *', async () => {
+        // Schedules messages so one random quote is sent at 6:30 PM every day
+        cron.schedule('0 30 18 * * *', async () => {
             // Holds ID of specified channel for quote to be posted in
             var testChannel = client.channels.cache.get(process.env.CHANNEL);
             // Random quote to be posted
