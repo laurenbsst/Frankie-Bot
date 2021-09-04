@@ -54,7 +54,7 @@ client.on('ready', () => {
         // Schedules messages so one random quote is sent at 6:30 PM every day
         cron.schedule('0 30 18 * * *', async () => {
             // Holds ID of specified channel for quote to be posted in
-            var channel = client.channels.cache.get(process.env.CHANNEL);
+            const channel = client.channels.cache.get(process.env.CHANNEL);
             // Random quote to be posted
             const finalQuote = await getQuote();
             // Bot waits 0.5 seconds before posting quote
@@ -72,16 +72,26 @@ client.on('ready', () => {
     }
 });
 
+const botCommandsChannel = client.channels.cache.get(process.env.CHANNEL);
+
 // Executed upon message event
 client.on('messageCreate', async (message) => {
     try {
-        // If user types '!quote' command, post random quote
+        // If user types '!quote' command
         if (message.content.toLowerCase() === "!quote") {
-            const finalQuote = await getQuote();
-            setTimeout(() => {
-                // Posts a quote to database using randomly generated index
-                message.channel.send(finalQuote.quote);
-            }, 500);
+            const currentChannel = message.channel.id;
+            // Quotes only allowed to be posted in the bot-commands channel to cut down on spam
+            if (currentChannel != botCommandsChannel) {
+                message.channel.send("Not allowed here! Type '!quote' in the bot-commands channel to see a quote.");
+            }
+            // If command is posted in the bot-commands channel
+            else {
+                const finalQuote = await getQuote();
+                setTimeout(() => {
+                    // Posts a quote to database using randomly generated index
+                    message.channel.send(finalQuote.quote);
+                }, 500);
+            }
         }
 
     } catch (error) {
