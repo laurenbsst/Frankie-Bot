@@ -81,16 +81,16 @@ client.on('messageCreate', async (message) => {
         // If user types '!quote' command
         if (message.content.toLowerCase() === "!quote") {
             // Quotes only allowed to be posted in the bot-commands channel to cut down on spam
-            if (message.channel.id != botCommandsChannel) {
-                message.channel.send("Not allowed here! Type '!quote' in the bot-commands channel to see a quote.");
-            }
-            // If command is posted in the bot-commands channel
-            else {
+            if (message.channel.id === botCommandsChannel) {
                 const finalQuote = await getQuote();
                 setTimeout(() => {
                     // Posts a quote to database using randomly generated index
                     message.channel.send(finalQuote.quote);
                 }, 500);
+            }
+            // If command is posted in the bot-commands channel
+            else {
+                message.channel.send("Not allowed here! Type '!quote' in the bot-commands channel to see a quote.");
             }
         }
 
