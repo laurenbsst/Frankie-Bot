@@ -88,7 +88,7 @@ client.on('messageCreate', async (message) => {
                     message.channel.send(finalQuote.quote);
                 }, 500);
             }
-            // If command is posted in the bot-commands channel
+            // If command is posted in another channel
             else {
                 message.channel.send("Not allowed here! Type '!quote' in the bot-commands channel to see a quote.");
             }
