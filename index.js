@@ -54,13 +54,13 @@ client.on('ready', () => {
         // Schedules messages so one random quote is sent at 6:30 PM every day
         cron.schedule('0 30 18 * * *', async () => {
             // Holds ID of specified channel for quote to be posted in
-            var testChannel = client.channels.cache.get(process.env.CHANNEL);
+            var channel = client.channels.cache.get(process.env.CHANNEL);
             // Random quote to be posted
             const finalQuote = await getQuote();
             // Bot waits 0.5 seconds before posting quote
             setTimeout(() => {
                 // Posts a quote to database using randomly generated index
-                testChannel.send("Daily quote: " + finalQuote.quote);
+                channel.send("Daily quote: " + finalQuote.quote);
             }, 500)
         }, {
             scheduled: true,
