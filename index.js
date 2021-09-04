@@ -72,15 +72,18 @@ client.on('ready', () => {
     }
 });
 
-const botCommandsChannel = client.channels.cache.get(process.env.CHANNEL);
+
 
 // Executed upon message event
 client.on('messageCreate', async (message) => {
     try {
+        const botCommandsChannel = process.env.CHANNEL;
         // If user types '!quote' command
         if (message.content.toLowerCase() === "!quote") {
             // Quotes only allowed to be posted in the bot-commands channel to cut down on spam
-            if (message.channel.id !== botCommandsChannel) {
+            console.log(message.channel.id);
+            console.log(generalChannel);
+            if (message.channel.id != botCommandsChannel) {
                 message.channel.send("Not allowed here! Type '!quote' in the bot-commands channel to see a quote.");
             }
             // If command is posted in the bot-commands channel
