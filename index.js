@@ -87,9 +87,7 @@ client.on('messageCreate', async (message) => {
                     // Posts a quote to database using randomly generated index
                     message.channel.send(finalQuote.quote);
                 }, 500);
-            }
-            // If command is posted in another channel
-            else {
+            } else {
                 message.channel.send("Not allowed here! Type '!quote' in the bot-commands channel to see a quote.");
             }
         }
