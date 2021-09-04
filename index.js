@@ -81,7 +81,7 @@ client.on('messageCreate', async (message) => {
         // If user types '!quote' command
         if (message.content.toLowerCase() === "!quote") {
             // Quotes only allowed to be posted in the bot-commands channel to cut down on spam
-            if (message.channel.id === botCommandsChannel) {
+            if (message.channel.id == botCommandsChannel) {
                 const finalQuote = await getQuote();
                 setTimeout(() => {
                     // Posts a quote to database using randomly generated index
