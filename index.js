@@ -10,6 +10,7 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const Quotes = require('./schemas/quote-schema');
 const cron = require('node-cron');
+const { channel } = require('node:diagnostics_channel');
 
 // Create a new Discord client
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
@@ -77,21 +78,21 @@ client.on('ready', () => {
 // Executed upon message event
 client.on('messageCreate', async (message) => {
     try {
-        const botCommandsChannel = process.env.CHANNEL;
         // If user types '!quote' command
         if (message.content.toLowerCase() === "!quote") {
-            // Quotes only allowed to be posted in the bot-commands channel to cut down on spam
-            if (message.channel.id == botCommandsChannel) {
+            const channel = process.env.CHANNEL;
+            if (message.channel.id === channel) {
+                // Quotes only allowed to be posted in the bot-commands channel to cut down on spam
                 const finalQuote = await getQuote();
                 setTimeout(() => {
                     // Posts a quote to database using randomly generated index
                     message.channel.send(finalQuote.quote);
                 }, 500);
-            } else {
+            }
+            else {
                 message.channel.send("Not allowed here! Type '!quote' in the bot-commands channel to see a quote.");
             }
         }
-
     } catch (error) {
         console.log("Something went wrong. Could not find quote.", error);
     }
