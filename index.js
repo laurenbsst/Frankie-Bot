@@ -81,8 +81,6 @@ client.on('messageCreate', async (message) => {
         // If user types '!quote' command
         if (message.content.toLowerCase() === "!quote") {
             // Quotes only allowed to be posted in the bot-commands channel to cut down on spam
-            console.log(message.channel.id);
-            console.log(generalChannel);
             if (message.channel.id != botCommandsChannel) {
                 message.channel.send("Not allowed here! Type '!quote' in the bot-commands channel to see a quote.");
             }
