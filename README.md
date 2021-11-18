@@ -137,12 +137,11 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-- [] Feature 1
-- [] Feature 2
-- [] Feature 3
-    - [] Nested Feature
+- [x] Posting a random quote
+- [x] The daily quote
+- [] Saving new quotes
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/laurenbsst/Frankie-Bot/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -178,9 +177,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - laurenb252@outlook.com
+Lauren Bassett - [LinkedIn](https://www.linkedin.com/in/lauren-bassett-4310921b0/) - laurenb252@outlook.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/laurenbsst/Frankie-Bot)
+Project Link: [https://github.com/laurenbsst/Frankie-Bot](https://github.com/laurenbsst/Frankie-Bot)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -189,10 +188,9 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
-* []()
-* []()
-
+* [Anson the Developer's Discord.js and MongoDB tutorials](https://youtu.be/sng1vw9l7J0)
+* [CodeLyon's Code Your Own Discord Bot (Basics)](https://youtu.be/j_sD9udZnCk)
+* [Discord.js docs](https://discord.js.org/#/docs/main/stable/general/welcome)
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
