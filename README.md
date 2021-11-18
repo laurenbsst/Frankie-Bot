@@ -188,6 +188,7 @@ Project Link: [https://github.com/laurenbsst/Frankie-Bot](https://github.com/lau
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
+* [Image of Frankie Heck. Copyright of Warner Bros. Entertainment Inc.](https://www.warnerbros.com/tv/middle)
 * [Anson the Developer's Discord.js and MongoDB tutorials](https://youtu.be/sng1vw9l7J0)
 * [CodeLyon's Code Your Own Discord Bot (Basics)](https://youtu.be/j_sD9udZnCk)
 * [Discord.js docs](https://discord.js.org/#/docs/main/stable/general/welcome)
