@@ -197,17 +197,17 @@ Project Link: [https://github.com/laurenbsst/Frankie-Bot](https://github.com/lau
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/laurenbsst/Frankie-Bot.svg?style=for-the-badge
 [contributors-url]: https://github.com/laurenbsst/Frankie-Bot/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/laurenbsst/Frankie-Bot.svg?style=for-the-badge
 [forks-url]: https://github.com/laurenbsst/Frankie-Bot/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/laurenbsst/Frankie-Bot.svg?style=for-the-badge
 [stars-url]: https://github.com/laurenbsst/Frankie-Bot/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/laurenbsst/Frankie-Bot.svg?style=for-the-badge
 [issues-url]: https://github.com/laurenbsst/Frankie-Bot/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/laurenbsst/Frankie-Bot.svg?style=for-the-badge
 [license-url]: https://github.com/laurenbsst/Frankie-Bot/blob/main/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin
+[linkedin-shield]: https://img.shields.io/badge/LinkedIn-gray?style=for-the-badge&logo=linkedin
 [linkedin-url]: https://www.linkedin.com/in/lauren-bassett-4310921b0/
 [product-screenshot]: images/screenshot.png
 
