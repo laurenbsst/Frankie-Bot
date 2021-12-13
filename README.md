@@ -27,13 +27,8 @@
 
 
 <!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://github.com/laurenbsst/Frankie-Bot">
-    <img src="https://user-images.githubusercontent.com/58308897/142194835-427fc6b3-3b58-4630-a5b6-f5eca8970039.png" alt="Logo" width="150" height="150">
-  </a>
 
-<h3 align="center">Frankie-Bot</h3>
+<h2 align="center">Frankie-Bot</h3>
 
   <p align="center">
     A simple Discord bot that posts random quotes from the TV show 'The Middle'
@@ -82,7 +77,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<img src= "https://user-images.githubusercontent.com/58308897/145884240-a70e0ba9-bf86-42fe-9933-ac1b58eff173.jpg" width="800"/>
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -126,7 +121,11 @@ Add Frankie-Bot to any Discord server through the [invite link](https://discord.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Once you've got Frankie-Bot up and running, simply type ```!quote``` in your specified Discord channel to see a randomly-generated quote.
+
+<img src="https://user-images.githubusercontent.com/58308897/145881997-151e205d-625e-4dda-9e7a-9790255e942f.jpg" width="600"/>
+
+
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
