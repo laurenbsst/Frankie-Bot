@@ -145,9 +145,6 @@ Once you've got Frankie-Bot up and running, simply type ```!quote``` in your spe
 <img src="https://user-images.githubusercontent.com/58308897/145881997-151e205d-625e-4dda-9e7a-9790255e942f.jpg" width="600"/>
 
 
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
