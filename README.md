@@ -107,21 +107,31 @@
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To get Frankie-Bot up and running locally on your machine, follow the prerequisite and installation steps below.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
+* <strong>Node.js:</strong> You will need the latest version of Node.js, which you can download <a href="https://nodejs.org/en/download/">here.</a>
+* <strong>Environment variables:</strong> To keep secret information secure, you will need to create a ```.env``` file within the project directory. Once your ```.env```
+  file has been created, use a text editor to copy in your environment variables as shown in the example below. <strong>NOTE: You must write the MONGODB_SRV value exactly
+  as it is written in the example.</strong> This will allow you access to the quotes database. You are required to input your own Discord token and channel ID.
+  
+    ```
+    TOKEN = abcdefghij...
+    MONGODB_SRV = mongodb+srv://all_users:1234@laurens-cluster.keqmo.mongodb.net/The-Middle
+    CHANNEL = 1234567...
+    ```
+
+### Running Frankie-Bot locally
+
+Once you have followed the above prerequisite steps, you are ready to run the bot locally. To do so, simply open the Discord desktop application, and then type the following command into your terminal:
+
   ```
+  node .
+  ```
+### Adding the bot to your server
 
-### Installation
-
-Add Frankie-Bot to any Discord server through the [invite link](https://discord.com/api/oauth2/authorize?client_id=873268006866780280&permissions=534723951680&scope=bot)
-
+If you don't want to run the bot locally, and simply wish to add Frankie-Bot to your Discord server, you can do so through the [invite link](https://discord.com/api/oauth2/authorize?client_id=873268006866780280&permissions=534723951680&scope=bot)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
