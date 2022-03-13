@@ -77,6 +77,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+'Frankie-Bot' is a bot developed for members of 'The Middle' Discord server. Upon command, Frankie-Bot will post a random quote from either Frankie, Mike, Brick, Sue or Axl (and some other characters too!) into the bot-commands channel. Fans can recall their favourite 'The Middle' scenes and lines, and discuss these with others!
+
 <img src= "https://user-images.githubusercontent.com/58308897/145884240-a70e0ba9-bf86-42fe-9933-ac1b58eff173.jpg" width="800"/>
 
 
