@@ -34,7 +34,7 @@
 
 <!-- PROJECT LOGO -->
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/58308897/158057786-42cc3cb0-799d-4715-bf4d-a416692a1314.jpg" height=175px, width=200px/>
+  <img src="https://user-images.githubusercontent.com/58308897/158057786-42cc3cb0-799d-4715-bf4d-a416692a1314.jpg" height=175px, width=180px/>
 </p>
 <h2 align="center">Frankie-Bot</h3>
   <p align="center">
